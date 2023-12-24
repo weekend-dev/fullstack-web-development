@@ -1,0 +1,21 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/docker/django/Dockerfile
+    volumes:
+      - ./backend:/backend
+    ports:
+      - 8001:8000
+    tty: true
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/docker/next/Dockerfile
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - 3001:3000
+    tty: true
+    stdin_open: true
