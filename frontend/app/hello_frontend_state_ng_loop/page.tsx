@@ -1,12 +1,14 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 
 export default function Page() {
-    const [data, setData] = useState({ name: '初期値' })
+    const [data, setData] = useState({ name: '初期値' });
 
-    const change = { name: '変更' }
-    setData(change)
+    useEffect(() => {
+        const change = { name: '変更' };
+        setData(change);
+    }, []); // 空の依存配列を追加することで、コンポーネントの初回マウント時のみ実行されます
 
-    return <div>hello {data.name}!</div>
+    return <div>hello {data.name}!</div>;
 }
