@@ -18,14 +18,14 @@ services:
     container_name: backend #コンテナ名を指定
     build:
       context: .
-      dockerfile: frontend/docker/next/Dockerfile
+      dockerfile: backend/docker/django/Dockerfile
       args:
-        - environment_name=development #環境変数を指定。本番用のbackend/config/settings/production.pyを参照する
+        - environment_name="development" #環境変数を指定。本番用のbackend/config/settings/production.pyを参照する
     tty: true
     volumes:
       - ./backend:/backend
     ports:
-      - 8000:8000
+      - 8001:8000
     depends_on:
       - db
     extra_hosts:
