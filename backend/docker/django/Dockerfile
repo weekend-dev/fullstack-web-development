@@ -6,9 +6,9 @@ ARG environment_name
 ENV environment=$environment_name
 
 # codeというディレクトリを作成しソースコードを配置、pip installでライブラリをインストール
-RUN mkdir /code
-WORKDIR /code
-ADD ./backend /code/
+RUN mkdir /backend
+WORKDIR /backend
+ADD ./backend /backend/
 RUN pip install -r requirements.lock
 
 # Djangoを起動

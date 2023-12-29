@@ -1,10 +1,10 @@
 # Dockerイメージを指定
 FROM node:20-slim
 
-# appというディレクトリを作成しソースコードを配置、yarnでライブラリをインストールし、yarn buildでライブラリをビルド
-RUN mkdir /app
-WORKDIR /app
-ADD ./frontend /app/
+# frontendというディレクトリを作成しソースコードを配置、yarnでライブラリをインストールし、yarn buildでライブラリをビルド
+RUN mkdir /frontend
+WORKDIR /frontend
+ADD ./frontend /frontend/
 RUN yarn
 RUN yarn build
 
