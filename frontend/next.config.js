@@ -1,13 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
     async rewrites() {
+        console.log("Rewrites called");
         return [
             {
-                source: 'api/:path*',
-                destination: 'http://host.docker.internal:8000/api/:path*',
-            }
+                source: '/api/:path*',
+                destination: 'http://host.docker.internal:8000/api/:path*/',
+            },
         ]
-    }
-}
-
-module.exports = nextConfig
+    },
+};
